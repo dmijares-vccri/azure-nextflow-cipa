@@ -8,7 +8,7 @@ POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
 content-type: application/json
 
 {
-    "config_uri": "",
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/master/nextflow/pipelines/nextflow.config",
     "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
     "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/bepridil.json",
     "auto_delete": true
@@ -20,7 +20,7 @@ POST https://fcnj6h.azurewebsites.net/api/nxfutil HTTP/1.1
 content-type: application/json
 
 {
-    "config_uri": "",
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/master/nextflow/pipelines/nextflow.config",
     "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
     "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/chlorpromazine.json",
     "auto_delete": true
@@ -32,7 +32,7 @@ POST https://fcnj6h.azurewebsites.net/api/nxfutil HTTP/1.1
 content-type: application/json
 
 {
-    "config_uri": "",
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/master/nextflow/pipelines/nextflow.config",
     "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
     "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/cisapride.json",
     "auto_delete": true
