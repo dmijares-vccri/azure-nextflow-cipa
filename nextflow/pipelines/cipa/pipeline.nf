@@ -6,7 +6,7 @@ params.timestamp = '$(date +%Y%m%d_%H%M%S%Z)'
 
 process parallel {
     cpus "$params.cpusPerSample"
-    queue 'default'
+    queue 'cipa'
     container "$params.azureRegistryServer/default/cipa:latest"
   
     input:
