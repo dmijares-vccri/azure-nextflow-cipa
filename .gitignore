@@ -1,1 +1,3 @@
 .vscode/settings.json
+nextflow/nextflow
+nextflow/.nextflow.log
