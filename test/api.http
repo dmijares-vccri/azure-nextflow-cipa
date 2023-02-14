@@ -16,7 +16,7 @@ content-type: application/json
 
 ### chlorpromazine
 
-POST https://fcnj6h.azurewebsites.net/api/nxfutil HTTP/1.1
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
 content-type: application/json
 
 {
@@ -28,7 +28,7 @@ content-type: application/json
 
 ### cisapride
 
-POST https://fcnj6h.azurewebsites.net/api/nxfutil HTTP/1.1
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
 content-type: application/json
 
 {
