@@ -1,1 +1,1 @@
-{"runId": "CiPA_Results", "drugName": "bepridil", "numberOfSamples": 2, "population": 80, "accuracy": 0.001, "cpusPerSample": 40}
+{"runId": "CiPA_Results", "drugName": "bepridil", "numberOfSamples": 10, "population": 80, "accuracy": 0.001, "cpusPerSample": 40}
