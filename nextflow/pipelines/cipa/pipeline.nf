@@ -17,7 +17,7 @@ process parallel {
 
     script:
         """
-        cd /app/CiPA/hERG_fitting/
+        cd /app/cipa/hERG_fitting/
 
         Rscript generate_bootstrap_samples.R -d $params.drugName >\
             "results/${params.drugName}/generate_bootstrap_samples.R.log"
