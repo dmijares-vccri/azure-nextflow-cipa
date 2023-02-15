@@ -37,3 +37,16 @@ content-type: application/json
     "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/cisapride.json",
     "auto_delete": true
 }
+
+# https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/dofetilide.json
+# https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/bepridil.json
+# https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/sotalol.json
+# https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/quinidine.json
+# https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/cisapride.json
+# https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/terfenadine.json
+# https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/ondansetron.json
+# https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/chlorpromazine.json
+# https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/verapamil.json
+# https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/ranolazine.json
+# https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/mexiletine.json
+# https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/diltiazem.json
