@@ -1,8 +1,8 @@
 {
-    "runId": "123456",
-    "drugName": "chlorpromazine",
+    "runId": "cisapride",
+    "drugName": "cisapride",
     "numberOfSamples": 2,
-    "population": 16,
+    "population": 80,
     "accuracy": 0.001,
     "cpusPerSample": 40
 }
