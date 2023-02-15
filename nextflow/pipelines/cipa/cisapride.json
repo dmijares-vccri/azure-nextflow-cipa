@@ -1,7 +1,7 @@
 {
     "runId": "CiPA_Results", 
     "drugName": "cisapride", 
-    "numberOfSamples": 2, 
+    "numberOfSamples": 10, 
     "population": 80, 
     "accuracy": 0.001, 
     "cpusPerSample": 40
