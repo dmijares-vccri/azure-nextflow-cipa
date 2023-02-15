@@ -1,0 +1,145 @@
+####
+GET https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+
+### dofetilide
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+content-type: application/json
+
+{
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/nextflow.config",
+    "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
+    "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/dofetilide.json",
+    "auto_delete": true
+}
+
+
+### bepridil
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+content-type: application/json
+
+{
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/nextflow.config",
+    "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
+    "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/bepridil.json",
+    "auto_delete": true
+}
+
+
+### sotalol
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+content-type: application/json
+
+{
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/nextflow.config",
+    "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
+    "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/sotalol.json",
+    "auto_delete": true
+}
+
+
+### quinidine
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+content-type: application/json
+
+{
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/nextflow.config",
+    "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
+    "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/quinidine.json",
+    "auto_delete": true
+}
+
+
+### cisapride
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+content-type: application/json
+
+{
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/nextflow.config",
+    "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
+    "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/different_file_name.json",
+    "auto_delete": true
+}
+
+
+### terfenadine
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+content-type: application/json
+
+{
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/nextflow.config",
+    "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
+    "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/terfenadine.json",
+    "auto_delete": true
+}
+
+
+### ondansetron
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+content-type: application/json
+
+{
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/nextflow.config",
+    "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
+    "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/ondansetron.json",
+    "auto_delete": true
+}
+
+
+### chlorpromazine
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+content-type: application/json
+
+{
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/nextflow.config",
+    "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
+    "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/chlorpromazine.json",
+    "auto_delete": true
+}
+
+
+### verapamil
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+content-type: application/json
+
+{
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/nextflow.config",
+    "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
+    "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/verapamil.json",
+    "auto_delete": true
+}
+
+
+### ranolazine
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+content-type: application/json
+
+{
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/nextflow.config",
+    "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
+    "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/ranolazine.json",
+    "auto_delete": true
+}
+
+
+### mexiletine
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+content-type: application/json
+
+{
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/nextflow.config",
+    "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
+    "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/mexiletine.json",
+    "auto_delete": true
+}
+
+
+### diltiazem
+POST https://fc7z3c.azurewebsites.net/api/nxfutil HTTP/1.1
+content-type: application/json
+
+{
+    "config_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/nextflow.config",
+    "pipeline_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/pipeline.nf",
+    "parameters_uri": "https://raw.githubusercontent.com/dmijares-vccri/azure-nextflow-cipa/main/nextflow/pipelines/cipa/diltiazem.json",
+    "auto_delete": true
+}
