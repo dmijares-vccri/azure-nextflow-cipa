@@ -18,8 +18,8 @@ process test {
         chmod +x ./entrypoint.sh 
         rm -rf results/*
         ./entrypoint.sh $params.drugName $task.cpus $params.cpusPerSample
-        cp -R results/  "${params.azureFileShare}/results/"
-        cp -R logs/  "${params.azureFileShare}/logs/"
+        cp -rv results/  "${params.azureFileShare}/results/"
+        cp -rv logs/  "${params.azureFileShare}/logs/"
         """
 }
 
