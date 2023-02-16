@@ -17,7 +17,7 @@ process test {
         cd /app/cipa/hERG_fitting/
         chmod +x ./entrypoint.sh 
         rm -rf results/*
-        ./entrypoint.sh $params.drugName $task.cpus $params.cpusPerSample
+        ./entrypoint.sh $params.drugName $task.cpus $params.numberOfSamples
         cp -rv results/  "${params.azureFileShare}/results/"
         cp -rv logs/  "${params.azureFileShare}/logs/"
         """
