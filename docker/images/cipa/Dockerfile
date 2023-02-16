@@ -32,5 +32,5 @@ RUN Rscript -e 'system("R CMD SHLIB hergmod.c")'
 RUN mkdir ${APP_DIR}/cipa/hERG_fitting/logs
 
 WORKDIR ${APP_DIR}/cipa/hERG_fitting
-# COPY script.sh entrypoint.sh
+COPY script.sh entrypoint.sh
 # ENTRYPOINT [ "./entrypoint.sh" ]
