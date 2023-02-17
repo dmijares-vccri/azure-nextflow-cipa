@@ -6,7 +6,7 @@ params.timestamp = '$(date +%Y%m%d_%H%M%S%Z)'
 
 process test {
     cpus "$params.cpusPerSample"
-    queue 'cipa'
+    queue 'default'
     container "$params.azureRegistryServer/default/cipa:latest"
 
     output:
