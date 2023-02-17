@@ -14,14 +14,14 @@ process test {
 
     script:
         """
-        mkdir "${params.azureFileShare}/results/"
-        mkdir  "${params.azureFileShare}/logs/"
+        mkdir -p "${params.azureFileShare}/${params.runId}/results/"
+        mkdir -p "${params.azureFileShare}/${params.runId}/logs/${params.drugName}"/
         cd /app/cipa/hERG_fitting/
         chmod +x ./entrypoint.sh 
         rm -rf results/*
         ./entrypoint.sh $params.drugName $task.cpus $params.numberOfSamples
-        cp -r results/*  "${params.azureFileShare}/results/"
-        cp -r logs/*  "${params.azureFileShare}/logs/"
+        cp -rv results/*  "${params.azureFileShare}/${params.runId}/results/"
+        cp -rv logs/*  "${params.azureFileShare}/${params.runId}/logs/${params.drugName}"/
         """
 }
 
