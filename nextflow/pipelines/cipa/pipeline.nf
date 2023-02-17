@@ -14,6 +14,8 @@ process test {
 
     script:
         """
+        mkdir "${params.azureFileShare}/results/"
+        mkdir  "${params.azureFileShare}/logs/"
         cd /app/cipa/hERG_fitting/
         chmod +x ./entrypoint.sh 
         rm -rf results/*
