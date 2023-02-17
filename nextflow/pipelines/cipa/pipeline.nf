@@ -4,9 +4,9 @@ nextflow.enable.dsl=2
 
 params.timestamp = '$(date +%Y%m%d_%H%M%S%Z)'
 
-process test {
+process cipa {
     cpus "$params.cpusPerSample"
-    queue 'default'
+    queue 'cipa'
     container "$params.azureRegistryServer/default/cipa:latest"
 
     output:
@@ -26,7 +26,7 @@ process test {
 }
 
 workflow {
-     test | view
+     cipa | view
 }
 
 
