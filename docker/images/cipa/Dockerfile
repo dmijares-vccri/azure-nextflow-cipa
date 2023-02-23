@@ -25,12 +25,16 @@ ENV APP_DIR=${CIPA_ROOT_DIR}
 RUN mkdir ${APP_DIR}
 # Clone the repository and specify the location
 RUN git clone https://github.com/FDA/CiPA.git ${APP_DIR}/cipa
+RUN rm -rf ${APP_DIR}/cipa/hERG_fitting/resutls/*
 
 WORKDIR ${APP_DIR}/cipa/hERG_fitting/models
 
 RUN Rscript -e 'system("R CMD SHLIB hergmod.c")'
+
 RUN mkdir ${APP_DIR}/cipa/hERG_fitting/logs
 
 WORKDIR ${APP_DIR}/cipa/hERG_fitting
+
 COPY script.sh entrypoint.sh
+RUN chmod +x entrypoint.sh
 # ENTRYPOINT [ "./entrypoint.sh" ]
