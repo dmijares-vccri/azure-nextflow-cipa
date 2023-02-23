@@ -1,3 +1,5 @@
 .vscode/settings.json
 nextflow/nextflow
 nextflow/.nextflow.log
+nextflow/pipelines/pipeline.nf.bkp
+nextflow/pipelines/cipa/pipeline.old
