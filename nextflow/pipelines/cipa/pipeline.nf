@@ -25,7 +25,7 @@ process prerequisites  {
         mkdir -p "${params.pathtoresults}"
         mkdir -p "${params.pathtologs}"
 
-        #clear results folder and create logs folder
+        #clear results folder and create logs foldermexiletine
         rm -rf results/*
         mkdir -p "logs/${params.drugName}"
 
@@ -95,7 +95,7 @@ workflow {
         // Make sure sample range is within bounds
         if (params.startSampleNumber > 0) {
             if (params.startSampleNumber <= params.endSampleNumber) {
-                if (params.endSampleNumber < 2000) {
+                if (params.endSampleNumber <= 2000) {
                     def dir = prerequisites ()
                     parallel(dir, Channel.from(params.startSampleNumber..params.endSampleNumber)) | view
                 }
