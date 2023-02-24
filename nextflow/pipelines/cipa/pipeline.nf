@@ -4,8 +4,10 @@ nextflow.enable.dsl=2
 
 // params.timestamp = '$(date +%Y%m%d_%H%M%S%Z)'
 params.timestamp = '$(date +%y%m%d_%H%M%S)'
-params.pathtoresults = ${params.azureFileShare}/${params.runId}/results/${params.drugName}
-params.pathtologs = ${params.azureFileShare}/${params.runId}/logs/${params.drugName}
+params.pathazfs = "${params.azureFileShare}/${params.runId}"
+params.pathtoresults = "${params.azureFileShare}/${params.runId}/results/${params.drugName}"
+params.pathtologs = "${params.azureFileShare}/${params.runId}/logs/${params.drugName}"
+
 
 process prerequisites  {
     cpus "$params.cpusPerSample"
@@ -17,12 +19,15 @@ process prerequisites  {
 
     script:
         """
+        #go to working directory
         cd /app/cipa/hERG_fitting/
+        #create folders on azure share
+        mkdir -p "${params.pathtoresults}"
+        mkdir -p "${params.pathtologs}"
 
-        mkdir -p "${params.azureFileShare}/${params.runId}/results/${params.drugName}/boot"
-        mkdir -p "${params.azureFileShare}/${params.runId}/logs/${params.drugName}"
-
-        rm -rf "results/${params.drugName}"/*
+        #clear results folder and create logs folder
+        rm -rf results/*
+        mkdir -p "logs/${params.drugName}"
 
         Rscript generate_bootstrap_samples.R -d $params.drugName >\
             "logs/${params.drugName}/${params.drugName}_${params.timestamp}_generate_bootstrap_samples.R.txt"
@@ -30,14 +35,14 @@ process prerequisites  {
         Rscript hERG_fitting.R -d $params.drugName -c $task.cpus -i 0 -l $params.population -t $params.accuracy >\
             "logs/${params.drugName}/${params.drugName}_${params.timestamp}_sample_0.txt" 
 
-        cp -rv "results/${params.drugName}"/* "${params.azureFileShare}/${params.runId}/results/${params.drugName}"/
-        cp -rv "logs/${params.drugName}"/* "${params.azureFileShare}/${params.runId}/logs/${params.drugName}""/
-        """    
+        cp -rv "results/${params.drugName}/"* "${params.pathtoresults}"
+        cp -rv "logs/${params.drugName}/"* "${params.pathtologs}"
+        """       
 }
 
 process parallel {
     cpus "$params.cpusPerSample"
-    queue 'default'
+    queue 'cipa'
     container "$params.azureRegistryServer/default/cipa:latest"
   
     input:
@@ -49,22 +54,26 @@ process parallel {
 
     script:
         """
+        #go to working directory
         cd /app/cipa/hERG_fitting/
-        rm -rf "results/${params.drugName}"/*
-
-        pushd ${baseDir}
-        cp -v `find -maxdepth 1 -type f` "/results/${params.drugName}"/
-        popd
-
-        Rscript hERG_fitting.R -d $params.drugName -c $task.cpus -i $sample -l $params.population -t $params.accuracy >\
-            "logs/${params.drugName}/${params.drugName}_${params.timestamp}_sample_${sample}.txt"
         
-        #copy sample results
-        cp -rv "results/${params.drugName}/boot"/* \
-               "${params.azureFileShare}/${params.runId}/${params.drugName}/boot"/
-        #copy sample logs 
-        cp -v  "logs/${params.drugName}"/* \
-                "${params.azureFileShare}/${params.runId}/logs/${params.drugName}""/
+        #delete existing results
+        rm -rf results/*
+
+        #create logs & results folders 
+        mkdir -p "logs/${params.drugName}"
+        mkdir -p "results/${params.drugName}"
+        
+        #copy results from previous process
+        cp -rv "${baseDir}/"* results/${params.drugName} | 2>null
+        
+        #run analisys
+        Rscript hERG_fitting.R -d $params.drugName -c $task.cpus -i $sample -l $params.population -t $params.accuracy >\
+                "logs/${params.drugName}/${params.drugName}_${params.timestamp}_sample_${sample}.txt"
+
+        #copy results & logs to the share
+        cp -rv "results/${params.drugName}/"* "${params.pathtoresults}/"
+        cp -rv "logs/${params.drugName}/"* "${params.pathtologs}/"
         """
 }
 
