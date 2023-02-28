@@ -2,7 +2,7 @@
     "runId": "last_two",
     "drugName": "ranolazine",
     "startSampleNumber": 1,
-    "endSampleNumber": 20,
+    "endSampleNumber": 2000,
     "population": 80,
     "accuracy": 0.001,
     "cpusPerSample": 40
