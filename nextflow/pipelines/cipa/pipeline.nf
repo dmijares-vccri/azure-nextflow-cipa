@@ -12,6 +12,7 @@ process prerequisites  {
     cpus "$params.cpusPerSample"
     queue 'cipa'
     container "$params.azureRegistryServer/default/cipa:latest"
+    errorStrategy 'retry'
     maxRetries 3
     output:
         val "${params.azureFileShare}/${params.runId}/results/${params.drugName}"
@@ -52,6 +53,7 @@ process parallel {
     cpus "$params.cpusPerSample"
     queue 'cipa'
     container "$params.azureRegistryServer/default/cipa:latest"
+    errorStrategy 'retry'
     maxRetries 3
     input:
         val baseDir
