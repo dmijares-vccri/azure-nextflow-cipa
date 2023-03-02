@@ -1,7 +1,7 @@
 {
     "runId": "last_two",
     "drugName": "mexiletine",
-    "startSampleNumber": 1059,
+    "startSampleNumber": 1523,
     "endSampleNumber": 2000,
     "population": 80,
     "accuracy": 0.001,
