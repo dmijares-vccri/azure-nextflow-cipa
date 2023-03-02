@@ -41,10 +41,9 @@ process prerequisites  {
         else
             Rscript hERG_fitting.R -d $params.drugName -c $task.cpus -i 0 -l $params.population -t $params.accuracy >\
                 "logs/${params.drugName}/${params.drugName}_${params.timestamp}_sample_0.txt" 
+            cp -v "results/${params.drugName}/"* "${params.pathtoresults}"
+            cp -v "logs/${params.drugName}/"* "${params.pathtologs}"
         fi
-
-        cp -v "results/${params.drugName}/"* "${params.pathtoresults}"
-        cp -v "logs/${params.drugName}/"* "${params.pathtologs}"
         """       
 }
 
