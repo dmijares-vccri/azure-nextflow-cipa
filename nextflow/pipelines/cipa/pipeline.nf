@@ -12,7 +12,7 @@ process prerequisites  {
     cpus "$params.cpusPerSample"
     queue 'cipa'
     container "$params.azureRegistryServer/default/cipa:latest"
-
+    maxRetries 3
     output:
         val "${params.azureFileShare}/${params.runId}/results/${params.drugName}"
 
@@ -25,14 +25,23 @@ process prerequisites  {
         mkdir -p "${params.pathtologs}"
 
         #clear results folder and create logs folder
+
         rm -rf results/*
         mkdir -p "logs/${params.drugName}"
-
-        Rscript generate_bootstrap_samples.R -d $params.drugName >\
+        #check if bootstrap exst
+        if [ -e '${params.pathtoresults}/boot_out.rds' ]; then
+            echo "boot_out.rds file exists, skipping bootstrap generation"
+        else
+            Rscript generate_bootstrap_samples.R -d $params.drugName >\
             "logs/${params.drugName}/${params.drugName}_${params.timestamp}_generate_bootstrap_samples.R.txt"
-
-        Rscript hERG_fitting.R -d $params.drugName -c $task.cpus -i 0 -l $params.population -t $params.accuracy >\
-          "logs/${params.drugName}/${params.drugName}_${params.timestamp}_sample_0.txt" 
+        fi
+        #check that sample 0 exist
+        if [ -e '${params.pathtoresults}/pars.txt' ]; then
+           echo "pars.txt file exists, skipping command"
+        else
+            Rscript hERG_fitting.R -d $params.drugName -c $task.cpus -i 0 -l $params.population -t $params.accuracy >\
+                "logs/${params.drugName}/${params.drugName}_${params.timestamp}_sample_0.txt" 
+        fi
 
         cp -v "results/${params.drugName}/"* "${params.pathtoresults}"
         cp -v "logs/${params.drugName}/"* "${params.pathtologs}"
@@ -44,7 +53,7 @@ process parallel {
     cpus "$params.cpusPerSample"
     queue 'cipa'
     container "$params.azureRegistryServer/default/cipa:latest"
-  
+    maxRetries 3
     input:
         val baseDir
         val sample
@@ -54,6 +63,8 @@ process parallel {
 
     script:
         """
+        if [ ! -f ${params.pathtoresults}"/boot/`printf "%05d" $sample`/pars.txt" ]; then
+
         #go to working directory
         cd /app/cipa/hERG_fitting/
         
@@ -67,15 +78,19 @@ process parallel {
         pushd ${baseDir}
         cp -v `find -maxdepth 1 -type f` "/app/cipa/hERG_fitting/results/${params.drugName}"/
         popd
-
         #run analisys
         Rscript hERG_fitting.R -d $params.drugName -c $task.cpus -i $sample -l $params.population -t $params.accuracy >\
-                 "logs/${params.drugName}/${params.drugName}_${params.timestamp}_sample_${sample}.txt"
+             "logs/${params.drugName}/${params.drugName}_${params.timestamp}_sample_${sample}.txt"
 
         #copy results & logs to the share
         cp -rv "results/${params.drugName}/"* "${params.pathtoresults}/"
         cp -rv "logs/${params.drugName}/"* "${params.pathtologs}/"
+        else 
+        echo "sample has been analysed  "/boot/`printf "%05d" $sample`/pars.txt""
+
+        fi
         """
+        
 }
 
 workflow {
