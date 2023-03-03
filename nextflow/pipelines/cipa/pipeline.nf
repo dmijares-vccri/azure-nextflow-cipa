@@ -25,10 +25,8 @@ process prerequisites  {
         mkdir -p "${params.pathtoresults}"
         mkdir -p "${params.pathtologs}"
 
-        #clear results folder and create logs folder
-
-        rm -rf results/*
         mkdir -p "logs/${params.drugName}"
+
         #check if bootstrap exst
         if [ -e '${params.pathtoresults}/boot_out.rds' ]; then
             echo "boot_out.rds file exists, skipping bootstrap generation"
@@ -36,6 +34,7 @@ process prerequisites  {
             Rscript generate_bootstrap_samples.R -d $params.drugName >\
             "logs/${params.drugName}/${params.drugName}_${params.timestamp}_generate_bootstrap_samples.R.txt"
         fi
+
         #check that sample 0 exist
         if [ -e '${params.pathtoresults}/pars.txt' ]; then
            echo "pars.txt file exists, skipping command"
@@ -68,9 +67,6 @@ process parallel {
 
         #go to working directory
         cd /app/cipa/hERG_fitting/
-        
-        #delete existing results
-        rm -rf results/*
 
         #create logs & results folders 
         mkdir -p "logs/${params.drugName}"
